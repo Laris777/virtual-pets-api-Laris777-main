@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
+    <title>Virtual Pet Delete Error</title>
+</head>
+<body>
+    <h2>Cannot find a pet with ID: <span th:text= "${invalidId}"></span></h2>
+    <form action="/home" method="get">
+        <button type="submit">
+            click to go home.
+        </button>
+    </form>
+
+    <footer>
+        <p>Author: Laris Jernigan</p>
+        <p>Phone #: 555-5555</p>
+        <p>Email: a@aol.com</p>
+    </footer>
+</body>
+</html>

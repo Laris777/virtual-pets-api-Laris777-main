@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
+    <title>Publisher</title>
+</head>
+<body>
+    <h1>Virtual Pets</h1>
+    <h2>View all Virtual Pets</h2>
+
+    <table>
+        <tr>
+            <th>Pet Id</th>
+            <th>Pet Name</th>
+            <th>Pet Species</th>
+            <th>Pet Hunger</th>
+            <th>Pet Thirst</th>
+            <th>Pet Boredom</th>
+        </tr>
+        <tr th:each="p: ${pets}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.petName}"></td>
+            <td th:text="${p.petSpecies}"></td>
+            <td th:text="${p.hunger}"></td>
+            <td th:text="${p.thirst}"></td>
+            <td th:text="${p.boredom}"></td>
+
+        </tr>
+    </table>
+
+    <h2>Add a pet</h2>
+    <form action="/home" method="post">
+        Pet name: <input type="text" name="petName" required/><br>
+        Pet description: <input type="text" name="petSpecies" required/><br>
+        Pet hunger: <input type="number" name="petHunger" min="0" value="0" oninput="this.value=Math.abs(this.value)" required/><br>
+        Pet thirst: <input type="number" name="petThirst" min="0" value="0" oninput="this.value=Math.abs(this.value)" required/><br>
+        Pet boredom: <input type="number" name="petBoredom" min="0" value="0" oninput="this.value=Math.abs(this.value)" required/><br>
+        <button type="submit">Add a pet</button>
+    </form>
+
+    <h2>Remove a pet</h2>
+    <form action="/delete" method="post">
+        Pet id to remove: <input type="number" name="deleteId" min="0" oninput="this.value=Math.abs(this.value)" required/><br>
+        <button type="submit">Remove a pet</button>
+    </form>
+    <script type="text/javascript" th:src="@{/js/javascript.js}"></script>
+</body>
+</html>
